@@ -1,3 +1,10 @@
+This Project for Showcasing following:
+
+1. Github Actions
+2. Harness
+3. Helm 
+4. AKS
+
 ##### build the project
 
     ./gradlew build
