@@ -12,7 +12,6 @@ jobs:
     - name: Dummy Step
       run: echo "This is a dummy job for CD workflow."
       
-      needs: ci
       if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
 
     - name: Checkout code
