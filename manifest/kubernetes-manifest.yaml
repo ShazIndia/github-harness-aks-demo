@@ -1,12 +1,39 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: harness-pod
+  name: githubactionspoc
   labels:
-    app: harnes
+    app: harness
+    env: poc
 spec:
-  containers:
-  - name: nginx-container
-    image: githubactionsharness.azurecr.io/githubactionsharness:latest
-    ports:
-    - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      app: harness
+  template:
+    metadata:
+      labels:
+        app: harness
+        env: poc
+    spec:
+      containers:
+      - name: githubactionspoc
+        image: githubactionsharness.azurecr.io/githubactionsharness:latest
+        ports:
+        - name:  http
+          containerPort: 8080
+          protocol: TCP
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  githubactionspoc-svc
+spec:
+  selector:
+    app:  harness
+  type:  LoadBalancer
+  ports:
+  - name:  http
+    port:  80
+    targetPort: 8080
