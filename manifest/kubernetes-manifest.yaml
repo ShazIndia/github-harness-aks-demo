@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: harness-pod
+  labels:
+    app: harnes
+spec:
+  containers:
+  - name: nginx-container
+    image: githubactionsharness.azurecr.io/githubactionsharness:latest
+    ports:
+    - containerPort: 80
