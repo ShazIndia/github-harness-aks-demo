@@ -16,10 +16,6 @@ jobs:
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
     
-    - run: |
-        docker build . -t githubactionsharness.azurecr.io/k8sflask:${{ github.sha }}
-        docker push githubactionsharness.azurecr.io/k8sflask:${{ github.sha }}
-      
     # Set the target AKS cluster.
     - uses: Azure/aks-set-context@v1
       with:
@@ -39,6 +35,6 @@ jobs:
         manifests: |
           manifest/kubernetes-manifest.yaml
         images: |
-          githubactionsharness.azurecr.io/k8sflask:${{ github.sha }}
+          githubactionsharness.azurecr.io/githubactionsharness:latest
         imagepullsecrets: |
           k8s-secret
