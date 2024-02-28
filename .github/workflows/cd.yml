@@ -34,5 +34,4 @@ jobs:
       with:
         manifests: manifest/kubernetes-manifest.yaml
         images: githubactionsharness.azurecr.io/githubactionsharness:latest
-        #imagepullsecrets: |
-         # k8s-secret
+        imagepullsecrets: k8s-secret
