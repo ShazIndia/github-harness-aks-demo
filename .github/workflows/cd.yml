@@ -1,5 +1,6 @@
 name: Deploy to AKS Cluster
 on:
+on:
   workflow_run:
     workflows: ["CI"]
     types:
@@ -7,12 +8,17 @@ on:
 
 jobs:
   build:
-    needs: ci
-    runs-on: ubuntu-latest
+
     steps:
+    - name: Dummy Step
+      run: echo "This is a dummy job for CD workflow."
+
+    runs-on: ubuntu-latest
+    needs: ci
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
     - uses: Azure/docker-login@v1
       with:
         login-server: githubactionsharness.azurecr.io
