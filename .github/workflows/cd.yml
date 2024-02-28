@@ -8,11 +8,12 @@ on:
 jobs:
   build:
     needs: ci
-    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      
+      if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
 
     - uses: Azure/docker-login@v1
       with:
