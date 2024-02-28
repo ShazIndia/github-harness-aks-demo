@@ -13,8 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-      if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
-
     - uses: Azure/docker-login@v1
       with:
         login-server: githubactionsharness.azurecr.io
