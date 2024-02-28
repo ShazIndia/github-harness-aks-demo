@@ -32,6 +32,6 @@ jobs:
 
     - uses: Azure/k8s-deploy@v1
       with:
-        manifests: manifest/kubernetes-manifest.yaml
+        manifests: manifests/Kubernetes-manifest.yaml
         images: githubactionsharness.azurecr.io/githubactionsharness:latest
         imagepullsecrets: k8s-secret
