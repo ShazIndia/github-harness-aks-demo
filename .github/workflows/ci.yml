@@ -28,10 +28,23 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     
-    - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
+    #- name: Build & push Docker image
+     # uses: mr-smithers-excellent/docker-build-push@v6
+     # with:
+    #   image: githubactionsharness
+    #    registry: githubactionsharness.azurecr.io
+     #   username: ${{ secrets.ACR_USERNAME }}
+     #   password: ${{ secrets.ACR_PASSWORD }}
+
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
       with:
-        image: githubactionsharness
-        registry: githubactionsharness.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
+    
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
