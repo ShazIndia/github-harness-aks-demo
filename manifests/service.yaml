@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  githubactionspoc-svc
+spec:
+  selector:
+    app:  harness
+  type:  LoadBalancer
+  ports:
+  - name:  http
+    port:  80
+    targetPort: 8080
