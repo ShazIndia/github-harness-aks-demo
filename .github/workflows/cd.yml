@@ -1,23 +1,17 @@
 name: Deploy to AKS Cluster
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Dummy Step
-      run: echo "This is a dummy job for CD workflow."
-      
-      if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    - uses: actions/checkout@v2
 
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - uses: Azure/ACR-login@v1
+    - uses: Azure/docker-login@v1
       with:
         login-server: githubactionsharness.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
