@@ -41,7 +41,7 @@ jobs:
         push: true
         tags: docker.io/shazindia86/githubactionsdemo:${{ github.sha }}
       
-      - run: |
+    - run: |
             docker build . -t docker.io/githubactionsdemo:${{ github.sha }}
             docker push docker.io/githubactionsdemo:${{ github.sha }}
         
