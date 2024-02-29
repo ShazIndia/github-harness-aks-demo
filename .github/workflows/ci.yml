@@ -39,7 +39,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: githubactionsharness.azurecr.io/githubactionsharness::${{ github.sha }}
+        tags: githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
       
     - run: |
             docker build . -t githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
