@@ -31,15 +31,6 @@ jobs:
         registry: githubactionsharness.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-
-    - name: Build and push 
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        tags: docker.io/shazindia86/githubactionsdemo:${{ github.sha }}
-      
     - run: |
-            docker build . -t docker.io/githubactionsdemo:${{ github.sha }}
-            docker push docker.io/githubactionsdemo:${{ github.sha }}
-        
-    
+            docker build . -t githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
+            docker push githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
