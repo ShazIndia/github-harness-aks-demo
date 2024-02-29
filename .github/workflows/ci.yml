@@ -32,8 +32,8 @@ jobs:
       uses: docker/login-action@v3
       with:
         #registry: githubactionsharness.azurecr.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
 
     - name: Build and push 
       uses: docker/build-push-action@v5
@@ -41,8 +41,8 @@ jobs:
         push: true
         tags: docker.io/shazindia86/githubactionsdemo:${{ github.sha }}
       
-      #- run: |
-      #      docker build . -t docker.io/githubactionsdemo:${{ github.sha }}
-       #     docker push docker.io/githubactionsdemo:${{ github.sha }}
+      - run: |
+            docker build . -t docker.io/githubactionsdemo:${{ github.sha }}
+            docker push docker.io/githubactionsdemo:${{ github.sha }}
         
     

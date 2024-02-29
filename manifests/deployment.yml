@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: githubactionspoc
-        image: docker.io/shazindia86/githubactionsdemo:latest
+        image: githubactionsharness.azurecr.io/githubactionsharness:520186ad960b3f7191f2dbe82c2def3dd171f039
+
         ports:
         - name:  http
           containerPort: 8080

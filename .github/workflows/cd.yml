@@ -17,11 +17,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - uses: Azure/docker-login@v1
+    - uses: Azure/ACR-login@v1
       with:
         #login-server: githubactionsharness.azurecr.io
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
     
     # Set the target AKS cluster.
     - uses: Azure/aks-set-context@v1
@@ -32,9 +32,9 @@ jobs:
         
     - uses: Azure/k8s-create-secret@v1
       with:
-        #container-registry-url: githubactionsharness.azurecr.io
-        container-registry-username: ${{ secrets.DOCKER_USERNAME }}
-        container-registry-password: ${{ secrets.DOCKER_PASSWORD }}
+        container-registry-url: githubactionsharness.azurecr.io
+        container-registry-username: ${{ secrets.ACR_USERNAME }}
+        container-registry-password: ${{ secrets.ACR_PASSWORD }}
         secret-name: k8s-secret
 
     - uses: Azure/k8s-deploy@v3
@@ -42,5 +42,5 @@ jobs:
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
-        images: docker.io/shazindia86/githubactionsdemo:latest
+        images: githubactionsharness.azurecr.io/githubactionsharness:520186ad960b3f7191f2dbe82c2def3dd171f039
         imagepullsecrets: k8s-secret
