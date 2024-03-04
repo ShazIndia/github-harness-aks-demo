@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: githubactionspoc
-        image: githubactionsharness.azurecr.io/githubactionsharness:520186ad960b3f7191f2dbe82c2def3dd171f039
+        image: githubactionsharness.azurecr.io/githubactionsharness:latest
 
         ports:
         - name:  http
