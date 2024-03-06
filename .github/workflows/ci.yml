@@ -25,7 +25,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Login to Azure Container Registery
+    - name: Login to Azure Container  Registery
       uses: docker/login-action@v3
       with:
         registry: githubactionsharness.azurecr.io
