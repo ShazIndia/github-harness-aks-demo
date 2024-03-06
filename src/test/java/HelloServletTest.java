@@ -1,10 +1,11 @@
-public class HelloServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().print("Hello, World!");
-    }
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
-    // Additional method to retrieve message
-    public String getMessage() {
-        return "Hello, World!";
+public class HelloServletTest {
+
+    @Test
+    public void testHelloServlet() {
+        HelloServlet servlet = new HelloServlet();
+        assertEquals("Hello, World!", servlet.getMessage());
     }
 }
