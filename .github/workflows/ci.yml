@@ -34,3 +34,10 @@ jobs:
     - run: |
             docker build . -t githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
             docker push githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
+    
+    - name: ACR Scanning
+      uses: azure/container-scan@v0
+      with:
+        image-name: githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }} # loginServerlUrl/ would be empty if it's hosted on dockerhub; ${{ github.sha }} could also be replaced with any desired image tag
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
