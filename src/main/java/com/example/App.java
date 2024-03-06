@@ -1,5 +1,3 @@
-package com.example;
-
 // HelloServlet.java
 import java.io.IOException;
 import javax.servlet.http.HttpServlet;
