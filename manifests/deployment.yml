@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   name: githubactionspoc
   labels:
-    app: harness
+    app: githubactions-harness-poc
     env: poc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: harness
+      app: githubactions-harness-poc
   template:
     metadata:
       labels:
@@ -20,6 +20,11 @@ spec:
       - name: githubactionspoc
         image: githubactionsharness.azurecr.io/githubactionsharness:latest
         imagePullPolicy: Always
+        command:
+        - /bin/sh
+        - -c
+        - "while true; do wget -q -O- http://php-apache; done"
+        
         ports:
         - name:  http
           containerPort: 8080
