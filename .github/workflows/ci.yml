@@ -32,8 +32,8 @@ jobs:
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
     - run: |
-            docker build . -t githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
-            docker push githubactionsharness.azurecr.io/githubactionsharness:${{ github.sha }}
+            docker build . -t githubactionsharness.azurecr.io/githubactionsharness:latest
+            docker push githubactionsharness.azurecr.io/githubactionsharness:latest
     
     #- name: ACR Scanning
      # uses: azure/container-scan@v0
