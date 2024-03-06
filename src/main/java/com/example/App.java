@@ -1,11 +1,11 @@
-// HelloServlet.java
-import java.io.IOException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+// HelloServletTest.java
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
-public class HelloServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().print("Welcome to GitHub Action ---> Harness ---> AKS Demo");
+public class HelloServletTest {
+    @Test
+    public void testHelloServlet() {
+        HelloServlet servlet = new HelloServlet();
+        assertEquals("Hello, World!", servlet.getMessage());
     }
 }
