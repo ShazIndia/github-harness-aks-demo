@@ -1,27 +1,13 @@
 package com.example;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import javax.annotation.PostConstruct;
+// HelloServlet.java
+import java.io.IOException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@SpringBootApplication
-public class App {
-
-    public static void main(String[] args)
-    {
-        SpringApplication.run(App.class, args);
-    }
-
-    @PostConstruct
-    public void init()
-    {
-        Logger log = LoggerFactory.getLogger(App.class);
-        log.info("Java app started");
-    }
-
-    public String getStatus() {
-        return "OK";
+public class HelloServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.getWriter().print("Welcome to GitHub Action ---> Harness ---> AKS Demo");
     }
 }

@@ -1,16 +1,11 @@
-import com.example.App;
-import org.junit.Test;
-import static org.junit.Assert.*;
+// HelloServletTest.java
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
-public class AppTest {
-
+public class HelloServletTest {
     @Test
-    public void testApp() {
-        App myApp = new App();
-
-        String result = myApp.getStatus();
-
-        assertEquals("OK", result);
+    public void testHelloServlet() {
+        HelloServlet servlet = new HelloServlet();
+        assertEquals("Hello, World!", servlet.getMessage());
     }
-
 }
