@@ -3,16 +3,10 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: githubactions-harness-hpa
 spec:
-  maxReplicas: 5 # define max replica count
-  minReplicas: 1  # define min replica count
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: githubactionspoc
-    metrics:
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Utilization
-          averageUtilization: 20
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 20
