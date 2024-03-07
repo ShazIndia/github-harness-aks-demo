@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: githubactions-harness-hpa
+  name: githubactions-harness-hpa-poc
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
