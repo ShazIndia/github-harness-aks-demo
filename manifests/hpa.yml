@@ -1,7 +1,11 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
+<<<<<<< HEAD
   name: githubactionspoc
+=======
+  name: githubactions-harness-hpa
+>>>>>>> 2ce189ebc7054eab0e31d64adf1a62f1db1e4ff6
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -9,8 +13,12 @@ spec:
     name: myapp-deployment
   minReplicas: 2
   maxReplicas: 5
+<<<<<<< HEAD
   metrics:
   - type: Resource
     resource:
       name: cpu
       targetAverageUtilization: 50
+=======
+  targetCPUUtilizationPercentage: 20
+>>>>>>> 2ce189ebc7054eab0e31d64adf1a62f1db1e4ff6

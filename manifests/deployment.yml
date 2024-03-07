@@ -3,23 +3,38 @@ kind: Deployment
 metadata:
   name: githubactionspoc
   labels:
+<<<<<<< HEAD
     app: harness
+=======
+    app: githubactionsharness
+>>>>>>> 2ce189ebc7054eab0e31d64adf1a62f1db1e4ff6
     env: poc
 spec:
   replicas: 1
   selector:
     matchLabels:
+<<<<<<< HEAD
       app: harness
+=======
+      app: githubactionsharness
+>>>>>>> 2ce189ebc7054eab0e31d64adf1a62f1db1e4ff6
   template:
     metadata:
       labels:
-        app: harness
+        app: githubactionsharness
         env: poc
     spec:
       containers:
       - name: githubactionspoc
         image: githubactionsharness.azurecr.io/githubactionsharness:latest
         imagePullPolicy: Always
+<<<<<<< HEAD
+=======
+        command: ["/bin/bash", "-c"]
+        args:
+         - "dd if=/dev/zero of=/dev/null"
+
+>>>>>>> 2ce189ebc7054eab0e31d64adf1a62f1db1e4ff6
         ports:
         - name:  http
           containerPort: 8080
