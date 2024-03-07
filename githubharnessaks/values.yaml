@@ -1,0 +1,15 @@
+deployment:
+  name: githubactionspoc
+  replicas: 1
+
+app:
+  name: githubactionsharness
+  env: poc
+
+container:
+  name: githubactionspoc
+  image: githubactionsharness.azurecr.io/githubactionsharness:latest
+  imagePullPolicy: Always
+  command: /bin/bash
+  args: "dd if=/dev/zero of=/dev/null"
+  port: 8080
