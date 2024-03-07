@@ -13,3 +13,12 @@ container:
   command: /bin/bash
   args: "dd if=/dev/zero of=/dev/null"
   port: 8080
+
+service:
+  name: githubactionspoc-svc
+  selector:
+    app: githubactionsharness
+  type: LoadBalancer
+  ports:
+    http: 80
+    targetPort: 8080
