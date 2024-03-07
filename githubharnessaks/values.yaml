@@ -1,5 +1,5 @@
 deployment:
-  name: githubactionspoc
+  name: githubactions-harness-deployment
   replicas: 1
 
 app:
@@ -10,12 +10,10 @@ container:
   name: githubactionspoc
   image: githubactionsharness.azurecr.io/githubactionsharness:latest
   imagePullPolicy: Always
-  command: /bin/bash
-  args: "dd if=/dev/zero of=/dev/null"
   port: 8080
 
 service:
-  name: githubactionspoc-svc
+  name: githubactions-harness-svc
   selector:
     app: githubactionsharness
   type: LoadBalancer
@@ -28,7 +26,7 @@ hpa:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: githubactionspoc
+    name: githubactions-harness-deployment
   minReplicas: 1
   maxReplicas: 5
   targetCPUUtilizationPercentage: 20
