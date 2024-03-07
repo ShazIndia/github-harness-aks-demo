@@ -20,9 +20,6 @@ spec:
       - name: {{ .Values.container.name }}
         image: {{ .Values.container.image }}
         imagePullPolicy: {{ .Values.container.imagePullPolicy }}
-        command: ["{{ .Values.container.command }}"]
-        args:
-        - "{{ .Values.container.args }}"
         ports:
         - name: http
           containerPort: {{ .Values.container.port }}
