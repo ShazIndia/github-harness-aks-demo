@@ -3,3 +3,9 @@
 .gradle/*
 out/
 build/
+terraformAks/.terraform
+terraformAks/.terraform.lock.hcl
+terraformAks/.terraform.tfstate.lock.info
+terraformAks/kubeconfig
+terraformAks/terraform.tfstate
+terraformAks/kubeconfig
