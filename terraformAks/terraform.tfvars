@@ -1,3 +1,3 @@
 # terraform.tfvars
-appId    = "ARM_CLIENT_ID"
-password = "ARM_CLIENT_SECRET"
+appId    = ${{ secrets.ARM_CLIENT_ID }}
+password = ${{ secrets.ARM_CLIENT_SECRET }}
