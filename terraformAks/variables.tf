@@ -1,17 +1,31 @@
-variable "resource_group_location" {
+# variables.tf
+
+variable "subscription_id" {
+  description = "Azure subscription ID"
   type        = string
-  default     = "eastus"
-  description = "Location of the resource group."
 }
 
-variable "resource_group_name_prefix" {
+variable "tenant_id" {
+  description = "Azure tenant ID"
   type        = string
-  default     = "rg"
-  description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
 }
 
-variable "node_count" {
-  type        = number
-  description = "The initial quantity of nodes for the node pool."
-  default     = 2
+variable "client_id" {
+  description = "Azure client ID"
+  type        = string
+}
+
+variable "client_secret" {
+  description = "Azure client secret"
+  type        = string
+}
+
+variable "resource_group_name" {
+  description = "Name of the resource group"
+  type        = string
+}
+
+variable "location" {
+  description = "Location for the resource group"
+  type        = string
 }
