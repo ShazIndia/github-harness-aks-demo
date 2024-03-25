@@ -1,6 +1,6 @@
 deployment:
   name: githubactions-harness-deployment
-  replicas: 1
+  replicas: 2
 
 app:
   name: githubactionsharness
